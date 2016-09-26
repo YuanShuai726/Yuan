@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html,body {
+            width: 101%;
+            height: 100%;
+            background-color: black;
+        }
+        .container {
+            width: 661px;
+            height: 419px;
+            margin: 100px auto;
+            border: 1px solid gold;
+            position: relative;
+        }
+        li {
+            list-style: none;
+            float: left;
+            margin: 10px;
+        }
+        li.current {
+            list-style: none;
+            float: left;
+            margin: 10px;
+        }
+        li.current::before {
+            content: "";
+            width: 200px;
+            height: 186px;
+            background-color: black;
+            opacity: 0;
+            position: absolute;
+        }
+        li::before {
+            content: "";
+            width: 200px;
+            height: 186px;
+            background-color: black;
+            opacity: .5;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <ul>
+        <li><img src="./img/01.jpg" alt=""></li>
+        <li><img src="./img/02.jpg" alt=""></li>
+        <li><img src="./img/03.jpg" alt=""></li>
+        <li><img src="./img/04.jpg" alt=""></li>
+        <li><img src="./img/05.jpg" alt=""></li>
+        <li><img src="./img/06.jpg" alt=""></li>
+    </ul>
+</div>
+<script>
+    var li = document.getElementsByTagName("li");
+    for(var i = 0 ; i < li.length ; i++){
+        li[i].index = i;
+        li[i].onmouseover = function () {
+            for(var j = 0 ; j < li.length ; j++){
+                li[j].className = ""
+            }
+            li[this.index].className = "current";
+        }
+        li[i].onmouseout = function () {
+            li[this.index].className = ""
+        }
+    }
+</script>
+</body>
+</html>
